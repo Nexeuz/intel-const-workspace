@@ -1,0 +1,133 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "discover-images": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/discover-images",
+      "sourceRoot": "projects/discover-images/src",
+      "prefix": "intc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/discover-images",
+            "index": "projects/discover-images/src/index.html",
+            "main": "projects/discover-images/src/main.ts",
+            "polyfills": "projects/discover-images/src/polyfills.ts",
+            "tsConfig": "projects/discover-images/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/discover-images/src/favicon.ico",
+              "projects/discover-images/src/assets"
+            ],
+            "styles": [
+              "projects/discover-images/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/discover-images/src/environments/environment.ts",
+                  "with": "projects/discover-images/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "discover-images:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "discover-images:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "discover-images:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/discover-images/src/test.ts",
+            "polyfills": "projects/discover-images/src/polyfills.ts",
+            "tsConfig": "projects/discover-images/tsconfig.spec.json",
+            "karmaConfig": "projects/discover-images/karma.conf.js",
+            "assets": [
+              "projects/discover-images/src/favicon.ico",
+              "projects/discover-images/src/assets"
+            ],
+            "styles": [
+              "projects/discover-images/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/discover-images/tsconfig.app.json",
+              "projects/discover-images/tsconfig.spec.json",
+              "projects/discover-images/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/discover-images/e2e/protractor.conf.js",
+            "devServerTarget": "discover-images:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "discover-images:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "1fabcbc6-31b0-4f36-8dda-e99e8c0c771e",
+    "defaultCollection": "@datorama/akita"
+  },
+  "defaultProject": "discover-images"
+}
