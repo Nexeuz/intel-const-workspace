@@ -6,16 +6,20 @@ import { AppComponent } from './app.component';
 import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { environment } from '../environments/environment';
 import { HomeComponent } from './pages/home/home.component';
+import {SharedModule} from './shared/shared.module';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    environment.production ? [] : AkitaNgDevtools.forRoot()
+    HttpClientModule,
+    environment.production ? [] : AkitaNgDevtools.forRoot(),
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'search-image',
+    loadChildren: () => import('./modules/search-images/search-images.module').then(m => m.SearchImagesModule)
   }
 ];
 
