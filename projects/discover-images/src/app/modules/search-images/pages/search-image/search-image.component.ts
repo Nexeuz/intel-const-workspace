@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ImagesQuery} from '../../../../core/state/images.query';
+import {Observable} from 'rxjs';
+import {HitsEntity} from '../../../../core/interfaces/pixa-bay-img';
 
 @Component({
   selector: 'intc-search-image',
@@ -7,7 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchImageComponent implements OnInit {
 
-  constructor() { }
+  images$: Observable<HitsEntity[]>;
+  constructor(private imagesQuery: ImagesQuery) {
+    this.images$ =  this.imagesQuery.selectAll();
+  }
 
   ngOnInit(): void {
   }
