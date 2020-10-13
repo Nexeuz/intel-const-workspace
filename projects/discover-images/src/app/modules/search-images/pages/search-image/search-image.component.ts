@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {ImagesQuery} from '../../../../core/state/images/images.query';
+import {Observable} from 'rxjs';
+import {HitsEntity} from '../../../../core/interfaces/pixa-bay-img';
+import { shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'intc-search-image',
@@ -7,7 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchImageComponent implements OnInit {
 
-  constructor() { }
+  images$: Observable<HitsEntity[]>;
+  loading$: Observable<boolean>;
+  constructor(private imagesQuery: ImagesQuery) {
+    this.loading$ = this.imagesQuery.selectLoading();
+    this.images$ =  this.imagesQuery.selectAll()
+      .pipe(
+        shareReplay(1)
+      );
+  }
 
   ngOnInit(): void {
   }

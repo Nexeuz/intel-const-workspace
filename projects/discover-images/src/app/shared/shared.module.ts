@@ -1,20 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
-import { SearchBarComponent } from './components/header/search-bar/search-bar.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { SearchBarCategoryComponent } from './components/search-bar-category/search-bar-category.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import {RouterModule} from '@angular/router';
 
 
 
 @NgModule({
-    declarations: [HeaderComponent, SearchBarComponent],
+    declarations: [HeaderComponent, SearchBarComponent, SearchBarCategoryComponent, SpinnerComponent],
   exports: [
     HeaderComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    SearchBarCategoryComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ]
 })
 export class SharedModule { }
