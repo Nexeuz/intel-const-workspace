@@ -1054,6 +1054,11 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
+"@datorama/akita-ng-entity-service@^5.0.2":
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/@datorama/akita-ng-entity-service/-/akita-ng-entity-service-5.0.2.tgz#c49152958f0d5f1b0cdb6db6d9db9af286e34e86"
+  integrity sha512-fbbLT6Dl8bNSY3LJSO32uLSu3k2KAbS5uaYJH9Kdj+IoXl6FU15mSfm/5U/uk0d6kdfRvI4moW0ny2bn8j74Vg==
+
 "@datorama/akita-ngdevtools@^3.0.2":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@datorama/akita-ngdevtools/-/akita-ngdevtools-3.0.2.tgz#399e0706b33f56a8efea5501d633f11086dc9618"
