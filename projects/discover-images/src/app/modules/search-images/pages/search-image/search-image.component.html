@@ -1,7 +1,16 @@
+<div class="search-image-container-actions">
+  <intc-search-bar></intc-search-bar>
+  <intc-search-bar-category></intc-search-bar-category>
+</div>
 <div class="search-image">
-  <intc-image
+  <intc-modal-image
     [image]="image"
     *ngFor="let image of images$ | async">
-  </intc-image>
+  </intc-modal-image>
+  <div *ngIf="(images$ | async)?.length === 0">
+    <h3> Ups... there aren't images for what you looking for</h3>
+  </div>
 </div>
+
+<intc-spinner *ngIf="loading$ | async"></intc-spinner>
 

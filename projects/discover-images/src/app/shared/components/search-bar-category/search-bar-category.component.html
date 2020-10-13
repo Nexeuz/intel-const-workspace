@@ -1,0 +1,10 @@
+<div class="dropdown">
+  <button (click)="toggleDropDown = !toggleDropDown" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Search by category
+  </button>
+  <ul [ngClass]="{'d-block': toggleDropDown}" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <li (click)="searchByCategory(category)" *ngFor="let category of categories" class="dropdown-item">
+      {{ category }}
+    </li>
+  </ul>
+</div>

@@ -2,15 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchImageComponent } from './pages/search-image/search-image.component';
 import {SearchImagesRoutingModule} from './search-images-routing.module';
-import { ImageComponent } from './components/image/image.component';
+import { ModalImageComponent } from './components/modal-image/modal-image.component';
+import {SharedModule} from '../../shared/shared.module';
 
 
 
 @NgModule({
-  declarations: [SearchImageComponent, ImageComponent],
+  declarations: [SearchImageComponent, ModalImageComponent],
   imports: [
     CommonModule,
-    SearchImagesRoutingModule
+    SearchImagesRoutingModule,
+    SharedModule
   ]
 })
 export class SearchImagesModule { }
